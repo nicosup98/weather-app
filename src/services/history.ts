@@ -15,15 +15,15 @@ function createStore(){
         !!params && url.searchParams.set(params.key,params.value)
         const resp = await handleFetch(url,{headers:{session_id}})
         const data: WeatherHistory[] =await resp.json()
+        console.log({data})
         set(data)
         
     }
 
     function addToHistory(data: Weather,historiSize: number = 3){
         update(h=>{
-            if(historiSize === h.length) h.shift();
-            h.push({data,type:"forecast"})
-            return h
+            if(historiSize === h.length) h.pop();
+            return [{data,type:"forecast"},...h]
         })
     }
 

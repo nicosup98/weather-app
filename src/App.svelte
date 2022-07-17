@@ -65,8 +65,8 @@
         break
 
       case "Patchy rain possible":
-        bgClass = `bg-gradient-to-t from-sky-600 via-slate-400 to-yellow-400`
-        navBgClass = `bg-yellow-400`
+        bgClass = `bg-gradient-to-t from-sky-600 via-slate-400 to-yellow-200`
+        navBgClass = `bg-yellow-200`
         bottomBgclass = "bg-sky-600"
         break
 
@@ -148,7 +148,7 @@
   
 </main>
 <ScrollToTop {scrollY}  />
-<SideBar open={openSidebar} history={$history} on:closeSideBar={(e)=> openSidebar = e.detail.open}/>
+<SideBar open={openSidebar} weatherHistory={$history} on:closeSideBar={(e)=> openSidebar = e.detail.open}/>
 
 <svelte:window bind:scrollY={scrollY}/>
 

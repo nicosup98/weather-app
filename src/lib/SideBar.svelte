@@ -7,7 +7,7 @@
     import { Divider } from '@svelteuidev/core';
 
     export let open: boolean
-    export let history: WeatherHistory[]
+    export let weatherHistory: WeatherHistory[] = []
 
     const eventDispatcher = createEventDispatcher()
     function close(){
@@ -31,11 +31,11 @@
                     <button class="bg-red-500 p-1 px-2  text-white" on:click={close}>X</button>
                 </div>
                 <div class="flex justify-center">
-                    Search History
+                    Search history
                 </div>
                 <Divider />
                 <div class="grid grid-cols-1  gap-2 px-2">
-                    {#each history as h}
+                    {#each weatherHistory as h}
                         <div class="bg-slate-200 rounded p-1 text-center cursor-pointer" on:click={()=>selectWeather(h)}>
                             {h.data.location.name}, {h.data.location.region}, {h.data.location.country} 
                         </div>
